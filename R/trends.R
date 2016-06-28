@@ -36,7 +36,7 @@ getTrends <- function(woeid, exclude=NULL, ...) {
   trends <- jsonList[[1]][['trends']]
   trend_rows = lapply(trends, function(x) {
     return(c(name=x$name, url=x$url, promoted_content=x$promoted_content,
-             query=x$query, events=x$events, woeid=woeid))
+             query=x$query, events=x$events, tweet_volume=x$tweet_volume, woeid=woeid))
   })
   return(as.data.frame(do.call(rbind, trend_rows), stringsAsFactors=FALSE))
 }
